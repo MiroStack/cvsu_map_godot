@@ -170,12 +170,13 @@
 		function submitSearch() {
 			const input = document.getElementById("searchBar");
 			const value = input.value.trim();
+				localStorage.setItem("searchText", "Registrar's Office");
+				console.log(localStorage.getItem("searchText"));
+			// if (value !== "") {
+			// 	localStorage.setItem("searchText", value); // Save it so Godot can read it
 
-			if (value !== "") {
-				localStorage.setItem("searchText", value); // Save it so Godot can read it
-
-				input.value = "";
-			}
+			// 	input.value = "";
+			// }
 		}
 
 		// Trigger on Enter key

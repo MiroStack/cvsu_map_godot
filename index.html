@@ -141,7 +141,7 @@
 </head>
 
 <body>
-	<input id="searchBar" type="text" placeholder="Search..." style="position:absolute; top:10px; left:10px; width:80%; height:40px; 
+	<input id="searchBar" type="text" placeholder="Search..." style="position:absolute; top:10px; left:50px; width:80%; height:40px; 
               font-size:18px; z-index:1000;" />
 
 	<canvas id='canvas'>
@@ -167,9 +167,25 @@
 
 	<script type='text/javascript' src='index.js'></script>
 	<script>
-		document.getElementById("searchBar").addEventListener("input", function (e) {
-			localStorage.setItem("searchText", e.target.value);
+		function submitSearch() {
+			const input = document.getElementById("searchBar");
+			const value = input.value.trim();
+
+			if (value !== "") {
+				localStorage.setItem("searchText", value); // Save it so Godot can read it
+
+				// Optionally reload the Godot project (if you want it to re-evaluate immediately)
+				location.reload(); // or call Godot function via godot.call if integrated
+			}
+		}
+
+		// Trigger on Enter key
+		document.getElementById("searchBar").addEventListener("keydown", function (event) {
+			if (event.key === "Enter") {
+				submitSearch();
+			}
 		});
+
 	</script>
 	<script type='text/javascript'>//<![CDATA[
 

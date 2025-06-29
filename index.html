@@ -141,8 +141,13 @@
 </head>
 
 <body>
-	<input id="searchBar" style="position:absolute; top:10px; right:50px; width:80%; height:40px; 
+	<div style="display:flex; align-items: center;">
+		<input id="searchBar" style="position:absolute; top:10px; right:50%; width:50%; height:40px; 
               font-size:18px; z-index:1000;" type="text" placeholder="Search...">
+			  <button class="btn_search" onclick="submitSearch">
+				Search
+			  </button>
+	</div>
 	<canvas id='canvas'>
 		HTML5 canvas appears to be unsupported in the current browser.<br />
 		Please try updating or use a different browser.

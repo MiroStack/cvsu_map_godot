@@ -174,8 +174,7 @@
 			if (value !== "") {
 				localStorage.setItem("searchText", value); // Save it so Godot can read it
 
-				// Optionally reload the Godot project (if you want it to re-evaluate immediately)
-				location.reload(); // or call Godot function via godot.call if integrated
+				input.value = "";
 			}
 		}
 

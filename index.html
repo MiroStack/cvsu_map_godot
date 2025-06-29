@@ -168,18 +168,16 @@
 	<script type='text/javascript' src='index.js'></script>
 	<script>
 		function submitSearch() {
-			function submitSearch() {
-				const input = document.getElementById("searchBar");
-				const value = input.value.trim();
+			const input = document.getElementById("searchBar");
+			const value = input.value.trim();
 
-				if (value !== "") {
-					localStorage.setItem("searchText", value);
-					console.log("✅ Saved to localStorage:", value);
-				} else {
-					console.warn("⚠️ Empty input, not saved.");
-				}
+			if (value !== "") {
+				localStorage.setItem("searchText", value);
+				console.log("✅ Saved to localStorage:", value);
+				input.value = ""
+			} else {
+				console.warn("⚠️ Empty input, not saved.");
 			}
-
 		}
 
 		// Trigger on Enter key
@@ -188,8 +186,8 @@
 				submitSearch();
 			}
 		});
-
 	</script>
+
 	<script type='text/javascript'>//<![CDATA[
 
 		const GODOT_CONFIG = { "args": [], "canvasResizePolicy": 2, "executable": "index", "experimentalVK": false, "fileSizes": { "index.pck": 3284640, "index.wasm": 17865444 }, "focusCanvas": true, "gdnativeLibs": [] };

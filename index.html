@@ -141,8 +141,8 @@
 </head>
 
 <body>
-			  <input id="searchBar" style="position:absolute; top:10px; right:50px; width:80%; height:40px; 
-              font-size:18px; z-index:1000;" type="text" placeholder="Search..." onkeyup="if(event.key==='Enter'){ localStorage.setItem('searchText', this.value); }">
+	<input id="searchBar" style="position:absolute; top:10px; right:50px; width:80%; height:40px; 
+              font-size:18px; z-index:1000;" type="text" placeholder="Search..." onkeyup="submitSearch()">
 
 	<canvas id='canvas'>
 		HTML5 canvas appears to be unsupported in the current browser.<br />
@@ -168,15 +168,18 @@
 	<script type='text/javascript' src='index.js'></script>
 	<script>
 		function submitSearch() {
-			const input = document.getElementById("searchBar");
-			const value = input.value.trim();
-				localStorage.setItem("searchText", "Registrar's Office");
-				console.log(localStorage.getItem("searchText"));
-			// if (value !== "") {
-			// 	localStorage.setItem("searchText", value); // Save it so Godot can read it
+			function submitSearch() {
+				const input = document.getElementById("searchBar");
+				const value = input.value.trim();
 
-			// 	input.value = "";
-			// }
+				if (value !== "") {
+					localStorage.setItem("searchText", value);
+					console.log("✅ Saved to localStorage:", value);
+				} else {
+					console.warn("⚠️ Empty input, not saved.");
+				}
+			}
+
 		}
 
 		// Trigger on Enter key
